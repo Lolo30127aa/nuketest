@@ -1,0 +1,43 @@
+function nuke()
+    
+    local screenGui = Instance.new("ScreenGui")
+    
+    screenGui.Name = "Nuke"
+    
+    local frame = Instance.new("Frame")
+    
+    frame.Size = UDim2.new(0.5, 0, 0.5, 0)
+    
+    frame.Position = UDim2.new(0.25, 0, 0.25, 0)
+    
+    frame.BackgroundColor3 = Color3.new(1, 0, 0)
+    
+    frame.Text = "Nuked by Midnight"
+    
+    frame.Font = Enum.Font.Arial
+    
+    frame.TextSize = 24
+    
+    frame.Parent = screenGui
+    
+    screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+end
+
+function kickPlayer()
+    
+    game.Players.LocalPlayer.Character = nil
+    
+    game:GetService("TeleportService"):Disconnect()
+    
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Error",
+        Text = "Nuked by Midnight",
+        Duration = 5,
+    })
+end
+
+nuke()
+
+wait(5)
+
+kickPlayer()
